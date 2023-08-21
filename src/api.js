@@ -11,7 +11,7 @@ async function getWeatherCast(location) {
     findInfo(weatherData)
 }
 
-getWeatherCast('phoenix', 'http://api.weatherapi.com/v1/current.json?key=fca5a49483f1418d9c8193621231907&q='); //change to search bar function/EIN
+//getWeatherCast('phoenix', 'http://api.weatherapi.com/v1/current.json?key=fca5a49483f1418d9c8193621231907&q='); //change to search bar function/EIN
 
 
 /* async function trialGetWeather(fetchVariable) {
@@ -23,7 +23,7 @@ getWeatherCast('phoenix', 'http://api.weatherapi.com/v1/current.json?key=fca5a49
 //make function that creates fetchVarible with the url, location and if it needs more.
 
 
-
+//Find the infor within JSON
 function findInfo(tester) {
     console.log(tester);
     console.log(tester.forecast)
@@ -37,3 +37,22 @@ function findInfo(tester) {
 
     //create Divs for array "forecastday" set the along as a color
     }
+
+    //function that lets the user pick location - delete- try again. 
+
+    function locationSearch() {
+        let locationBox = document.getElementById("location_box");
+        
+        locationBox.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              getWeatherCast(locationBox.value, 'http://api.weatherapi.com/v1/current.json?key=fca5a49483f1418d9c8193621231907&q='); //change to search bar function/EIN
+
+              console.log(typeof locationBox.value);
+              locationBox.value = '';
+            }
+          });
+    }
+    
+    locationSearch()
+     
