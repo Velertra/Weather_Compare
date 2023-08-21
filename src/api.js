@@ -14,10 +14,10 @@ async function getWeatherCast(location) {
 getWeatherCast('phoenix', 'http://api.weatherapi.com/v1/current.json?key=fca5a49483f1418d9c8193621231907&q='); //change to search bar function/EIN
 
 
-async function trialGetWeather(fetchVariable) {
+/* async function trialGetWeather(fetchVariable) {
     const response = await fetch(fetchVariable);
     const weatherData = await response.json();
-}
+} */
 
 
 //make function that creates fetchVarible with the url, location and if it needs more.
@@ -31,6 +31,9 @@ function findInfo(tester) {
     let container = document.createElement("info_container");
     container.setAttribute("id", "info_container");     //move into seperate function that takes in the name and location(site_container)
     site_container.appendChild(container);
+
+    let locationValue = document.getElementById("location_box").value;
+    console.log(locationValue); 
 
     //create Divs for array "forecastday" set the along as a color
     }
