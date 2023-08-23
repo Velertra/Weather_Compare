@@ -38,7 +38,7 @@ function findInfo(weatherData) {
     temperatureDiv.textContent = `Temp: ${weatherData.current.temp_f}`
     descriptionDiv.textContent = `Description: ${weatherData.current.condition.text}`
 
-    //let locationValue = document.getElementById("location_box").value;
+    
    let runner = temperatureDiv.textContent;
      console.log(typeof weatherData.current.temp_c); 
    
