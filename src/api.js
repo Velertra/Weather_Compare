@@ -19,12 +19,14 @@ http://api.weatherapi.com/v1/current.json?key=fca5a49483f1418d9c8193621231907&q=
 
 //just need to use "forcast" for now, until other information is needed. 
 async function getWeatherCast(location) {
-    const response = await fetch('http://api.weatherapi.com/v1/forecast.json' + '?key=fca5a49483f1418d9c8193621231907&q=' + location + '&days=2');
+    const response = await fetch('http://api.weatherapi.com/v1/forecast.json' + '?key=fca5a49483f1418d9c8193621231907&q=' + location + '&days=5');
     const weatherData = await response.json();
     //const result = weatherData.current.temp_f;
     //const needed = weatherData.current;
     findInfo(weatherData)
-}
+};
+
+getWeatherCast(20001);
 
 
 //Find the info within JSON
@@ -52,12 +54,13 @@ function findInfo(weatherData) {
 
    
     function locationSearch() {
-        let locationBox = document.getElementById("location_box");      //decide if youre
+        let locationBox = document.getElementById("location_box");      
         
         locationBox.addEventListener("keydown", function(e) {
             if (e.key === "Enter") {
               e.preventDefault();
-              getWeatherCast(locationBox.value, 'http://api.weatherapi.com/v1/current.json?key=fca5a49483f1418d9c8193621231907&q='); //change to search bar function/EIN
+              
+              getWeatherCast(locationBox.value); 
               locationBox.value = '';
             }
           });
