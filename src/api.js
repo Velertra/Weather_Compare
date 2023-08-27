@@ -7,6 +7,7 @@ async function getWeatherCast(location) {
 
     //switch to "return weatherData" when seperating modules
     console.log(weatherData);
+    console.log(weatherData.forecast.forecastday[0].date)
     const tester = new DOMInfo();
     tester.displayCurrentInfo(weatherData);
     tester.displayForecastInfo(weatherData);
@@ -19,6 +20,9 @@ getWeatherCast(20001);
     class DOMInfo{
         constructor(){
             //Current
+            this.locationDiv = document.getElementById('location');
+            this.dateDiv = document.getElementById('date');
+            this.timeDiv = document.getElementById('time');
             this.forecastDiv = document.getElementById('forecast');
             this.temperatureDiv = document.getElementById('temperature');
             this.descriptionDiv = document.getElementById('description');
@@ -35,9 +39,13 @@ getWeatherCast(20001);
             this.dayThree = document.getElementById('day_three')
         }
         displayCurrentInfo(weatherData){
+            this.locationDiv.textContent = weatherData.location.name;
+            this.dateDiv.textContent = new Date(weatherData.forecast.forecastday[0].date).toDateString().substring(0, 18);
+            this.timeDiv.textContent = new Date(weatherData.location.localtime).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });;
             this.temperatureDiv.textContent = `Temp: ${weatherData.current.temp_f}`;
             this.descriptionDiv.textContent = `Description: ${weatherData.current.condition.text}`;
-
+            this.forecastDiv.textContent = `Min: ${weatherData.forecast.forecastday[0].day.mintemp_f} Max: ${weatherData.forecast.forecastday[0].day.maxtemp_f}`;
+            
         }
         displayForecastInfo(weatherData){
             //Min
@@ -52,12 +60,10 @@ getWeatherCast(20001);
         displayWeekdays(weatherData){
             const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             let todaysDate = new Date(weatherData.forecast.forecastday[0].date);
-            let tomorrow = todaysDate.setDate(todaysDate.getDate() + 1);
+            //let tomorrow = todaysDate.setDate(todaysDate.getDate() + 1);
           
-            console.log(tomorrow)
+            console.log(typeof todaysDate)
             
-            this.dayTwo.textContent = days[todaysDate + 1];
-            this.dayThree.textContent = days[todaysDate + 2];
         }
     }
 
