@@ -2,34 +2,46 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.8">
     <title>Getting Started</title>
   </head>
   <body>
    
   <div class="site_container" id="site_container">
      <div class="search_container" id="search_container" >
-      <form class="location_form" id="location_form">  
-        
-        <input type="text" class="location_box" id="location_box" placeholder="Search Area.." />
-       
-        <!-- <div>
-          <input id="submit" class="submit" type="submit">
-        </div> -->
-      </form>
+        <div class="search_bar" id="search_bar">
+          <form class="location_form" id="location_form">  
+            <input type="text" class="location_box" id="location_box" placeholder="Search Area.." />
+          </form>
+        </div>
+        <div class="search_forecast" id="search_forecast">  
+          <div class="feel_like" id="feels_like"></div>
+          <div class="humidity" id="humidity"></div>
+          <div class="rain_chance" id="rain_chance"></div>
+          <div class="wind_speed" id="wind_speed"></div>
+          <div class="sun" id="sun">
+            <div class="sunrise" id="sunrise"></div>
+            <div class="sunset" id="sunset"></div>
+          </div>
+        </div>  
     </div>
     <div class="current_container" id="current_container">
-      <div class="location" id="location"></div>
-      <div class="date" id="date"></div>
-      <div class="time" id="time"></div>
-      <div class="description" id="description"></div>
-      <div class="forecast" id="forecast"></div>
+      <div class="location_container" id="location_container">
+        <div class="location" id="location"></div>
+        <div class="time" id="time"></div>
+      </div>
+      <div class="current_information" id="current_information">
+        <div class="date" id="date"></div>
+        <div class="description" id="description"></div>
+        <div class="forecast" id="forecast"></div>
+      </div>  
       <div class="temperature" id="temperature"></div>
     </div>
     <div class="bottomleft_container" id="bottomleft_container"></div>
     <div class="bottomright_container" id="bottomright_container"></div>
     <div class="forecast_container" id="forecast_container">
       <div class="weekday_container" id="weekday_container">
-        <div class="switch_temperature" id="switch_temperature"></div>
+        <div class="switch_temperature" id="switch_temperature">f&deg;</div>
         <div class="today_div">Today</div>
         <div class="day_two" id="day_two"></div>
         <div class="day_three" id="day_three"></div>
