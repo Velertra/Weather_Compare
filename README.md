@@ -26,4 +26,3 @@ Old notes - decide if you need  //
     // after you add the hourly forecast or the other days start working on the CSS
 
 
-    
