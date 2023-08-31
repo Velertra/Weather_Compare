@@ -1,28 +1,14 @@
 # Weather_Compare
 
 
+-Need to Orginize code into thier own modules
+-edit search bar so it only takes correct info and only lets "enter" work after a value has been filled
+-add little images
+-CSS
+-remove colored Divs
+-background image 
+
+
+__Original Idea__
 Will have both future forcast, and previous forcast, along with the actual temp that occurred.
-
-
-
-
-
-
-
-
-
-
-
-Old notes - decide if you need  //
-
-//NOTES
-//make function that creates fetch Varible with the url, location and if it needs more.
-
-
-    //either create the divs with a function for each piece of information you want to display or set up the divs
-
-    //also find information from previous day if you still want to show comparisons
-
-    // after you add the hourly forecast or the other days start working on the CSS
-
-
+-might be unable to do because the future forecast changes every 5 seconds 

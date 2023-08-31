@@ -115,10 +115,10 @@ let reRender = new DOMInfo();
         let switchBtn = document.getElementById("switch_temperature");
         switchBtn.addEventListener('click', function(e){
             if(switchLetter === 'f'){
-                switchBtn.textContent = 'c\u00B0';
+                switchBtn.textContent = 'C\u00B0';
                 switchLetter = "c";
             } else {
-                switchBtn.textContent = 'f\u00B0';
+                switchBtn.textContent = 'F\u00B0';
                 switchLetter = "f";
             }
             reRender.displayCurrentInfo(currentLocation, switchLetter);
