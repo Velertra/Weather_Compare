@@ -1,22 +1,59 @@
  * {
     margin: 0;
-    padding: 0;
+}
+body{
+    background-image: url('../imgs/daytime_cyber.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
+.sun_animation{
+    position: absolute;
+    animation: 4s linear 0s infinite alternate sun-rise;
+    width: 200px;
+    height: 200px;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><circle cx='100' cy='100' r='50' fill='goldenrod' /><line x1='100' y1='25' x2='100' y2='0' stroke='goldenrod' stroke-width='5' /><line x1='175' y1='100' x2='200' y2='100' stroke='goldenrod' stroke-width='5' /><line x1='100' y1='175' x2='100' y2='200' stroke='goldenrod' stroke-width='5' /><line x1='25' y1='100' x2='0' y2='100' stroke='goldenrod' stroke-width='5' /><line x1='140' y1='40' x2='160' y2='20' stroke='goldenrod' stroke-width='5' /><line x1='60' y1='160' x2='40' y2='140' stroke='goldenrod' stroke-width='5' /><line x1='140' y1='160' x2='160' y2='140' stroke='goldenrod' stroke-width='5' /><line x1='60' y1='40' x2='40' y2='60' stroke='goldenrod' stroke-width='5' /></svg>") no-repeat;
+}
+.site_container{
+    color: #6855e8;
+}
+
+@keyframes sun-rise {
+    from {
+      /* pushes the sun down past the viewport */
+      transform: translate(110vh);
+    }
+    to {
+      /* returns the sun to its default position */
+      transform: translateY(0);
+    }
+  }
+
 .search_container {
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
     position: absolute;
     top: 0;
     right: 0;
     width: 71%;
-    height: 18%;
+    height: 14%;
     display: flex;
     flex-direction: column;
     padding: 1.5%;
+    .search_forecast{
+        display: flex;
+        flex-direction: row;
+        height: 80%;
+        align-items: end;
+        justify-content: space-around;
+        font-size: max(2vw, 15px);
+        align-items: flex-end;
+        min-width: 3vw;
+    }
   }
-  
+
+
   .current_container {
-    background-color: #d0d0d0;
+    /* background-color: #d0d0d0; */
     position: absolute;
     top: 0;
     left: 0;
@@ -26,7 +63,7 @@
   }
   
   .bottomleft_container {
-    background-color: #a0a0a0;
+    /* background-color: #a0a0a0; */
     position: absolute;
     bottom: 0;
     left: 0;
@@ -35,20 +72,13 @@
   }
   
   .bottomright_container {
-    background-color: #808080;
+    /* background-color: #808080; */
     position: absolute;
     bottom: 0;
     right: 0;
     width: 73%;
     height: 80%;
   }
-
-
-//search bar div
-
-
-
-//layout
 
 .forecast_container {
     position: absolute;
@@ -60,6 +90,10 @@
     justify-content: space-around;
     align-items: center;
   }
+
+//layout
+
+
 
 .min_container,
 .max_container {
@@ -90,7 +124,6 @@
     margin: 5%;
     height: 100%;
     box-sizing: border-box;
-    background-color: red;
 }
 
 
@@ -105,18 +138,9 @@
 
 
 //search container
-.search_forecast{
-    display: flex;
-    flex-direction: row;
-    height: 80%;
-    align-items: end;
-    justify-content: space-around;
-    font-size: max(2vw, 15px);
-    align-items: flex-end;
-}
+
 
 .search_forecast > div {
-    background-color: goldenrod;
     text-align: center;
     display: flex;
     flex-direction: column-reverse;  
@@ -127,47 +151,56 @@
     font-weight: bold;
 }
 
+
+
 //current div
+.current_container{
+    .location_container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        .location {
+            font-size: 3vw;
+            font-weight: 700;
+            
+        }
+        .time {
+            font-size: 2vh;
+        }
+    }
+    .current_information{
+        display: flex;
+        flex-direction: column;
+        height: 78%;
+        justify-content: start;
+        .description{
+            margin-top: min(9vw, 4vw);
+            
+        }
+        .description,
+        .forecast {
 
-.current_information {
-    display: flex;
-    flex-direction: column;
-    margin-left: 16vw;
+            font-size: 2.1vh;
+        }
+        .date {
+            font-size: 2.7vh;
+        }
+    }
+    .temperature {
+        font-size: clamp(8vw, 8vw, 41vw);;
+        position: absolute;
+        top: 42%;
+        left: 42%;
+    }
 }
 
-.location_container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-
-}
-
-#description,
-#forecast {
-    align-self: flex-end;
-    font-size: 2.5vh;
-}
-
-.location {
-    font-size: 3vw;
-    font-weight: 700;
-}
-
-.date {
-    font-size: 3vh;
-}
-
-.time {
-    font-size: 2vh;
-}
 
 .temperature {
-    font-size: 6vw;
+    font-size: clamp(10px, 5vw, 41vw);;
     position: absolute;
-    top: 40%;
-    left: 5%;
-    width: 50%;
+    top: 65%;
+    left: 39%;
 }
 
 //forecast Divs

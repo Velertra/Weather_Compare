@@ -54,11 +54,11 @@ getWeatherCast(20001);
             this.locationDiv.textContent = weatherData.location.name;
             this.dateDiv.textContent = new Date(weatherData.forecast.forecastday[0].date).toDateString().substring(0, 11);
             this.timeDiv.textContent = new Date(weatherData.location.localtime).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
-            this.temperatureDiv.textContent = `${weatherData.current[`temp_${switchLetter}`]}°`;
+            this.temperatureDiv.textContent = DOMInfo.roundOut(`${weatherData.current[`temp_${switchLetter}`]}`) + '°';
             this.descriptionDiv.textContent = `${weatherData.current.condition.text}`;
             this.forecastDiv.textContent = `${weatherData.forecast.forecastday[0].day[`mintemp_${switchLetter}`]}°/${weatherData.forecast.forecastday[0].day[`maxtemp_${switchLetter}`]}°`;
             //Info In Search Div
-            this.feelLikeDiv.innerHTML = `${weatherData.current[`feelslike_${switchLetter}`]}°<span class="labels_in_search">Feels Like:</span><br>`;
+            this.feelLikeDiv.innerHTML = DOMInfo.roundOut(`${weatherData.current[`feelslike_${switchLetter}`]}`) + `°<span class="labels_in_search">Feels Like:</span><br>`;
             this.humidityDiv.innerHTML = `${weatherData.current.humidity}%<span class="labels_in_search">Humidity:</span><br>`;
             this.windSpeedDiv.innerHTML = `${weatherData.current.wind_mph}mph<span class="labels_in_search">Wind Speed:</span><br>`;
             this.rainChanceDiv.innerHTML = `${weatherData.forecast.forecastday[0].day.daily_chance_of_rain}%<span class="labels_in_search">Chance Of Rain:</span><br>`;
@@ -69,7 +69,7 @@ getWeatherCast(20001);
             this.dayTwo.textContent = new Date(todaysDate.setDate(todaysDate.getDate() + 1)).toString().substring(0, 4);
             this.dayThree.textContent = new Date(todaysDate.setDate(todaysDate.getDate() + 2)).toString().substring(0, 4);
             //Min
-            this.todayMinDiv.textContent = weatherData.forecast.forecastday[0].day[`mintemp_${switchLetter}`];
+            this.todayMinDiv.textContent = weatherData.forecast.forecastday[0].day[`mintemp_${switchLetter}`] ;
             this.tomorrowMinDiv.textContent = weatherData.forecast.forecastday[1].day[`mintemp_${switchLetter}`];
             this.datMinDiv.textContent = weatherData.forecast.forecastday[2].day[`mintemp_${switchLetter}`];
             //Max
@@ -88,8 +88,9 @@ getWeatherCast(20001);
                 }
             });
         }
-        tempertureSwitch(){
-
+        static roundOut(float){
+            let roundNumber = Math.ceil(float)
+            return roundNumber;
         }
     }
 
