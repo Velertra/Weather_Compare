@@ -6,6 +6,7 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
+    color: white;
 }
 
 .background_container{
@@ -54,6 +55,18 @@ body{
         }
       }
 
+      //div backgrounds
+
+
+
+      .weekday_container > div,
+      .min_container > div,
+      .max_container > div,
+      .search_forecast,
+      .location_container,
+      .current_information{
+        background-color: rgb(2 7 22 / 53%);
+      }
 /* @keyframes x { to { left:calc(var(--x) + 1px); } }
 @keyframes y { to { top :calc(var(--y) + 0.2px); } }
 .site_container{
@@ -161,7 +174,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5%;
+    margin: 7%;
     height: 100%;
     box-sizing: border-box;
 }
@@ -247,10 +260,10 @@ body{
 .min_container > div,
 .max_container > div {
     font-weight: 800;
-    font-size: max(3.5vw, 15px);
+    font-size: max(4.7vw, 15px);
 }
 
 .weekday_container > div {
     font-weight: 1000;
-    font-size: max(3.5vw, 15px);
+    font-size: max(4.7vw, 15px);
 }

@@ -4,7 +4,7 @@
 
 
 async function getWeatherCast(location) {
-    const response = await fetch('http://api.weatherapi.com/v1/forecast.json' + '?key=fca5a49483f1418d9c8193621231907&q=' + location + '&days=5');
+    const response = await fetch('https://api.weatherapi.com/v1/forecast.json' + '?key=fca5a49483f1418d9c8193621231907&q=' + location + '&days=5');
     const weatherData = await response.json();
 
     //switch to "return weatherData" when seperating modules
