@@ -1,21 +1,39 @@
  * {
     margin: 0;
 }
+
 body{
-    background-image: url('../imgs/daytime_cyber.png');
+
+    overflow-y: clip;
+}
+
+.background_city{
+    /* background-image: url('../imgs/daytime_cyber.png'); */
     background-size: cover;
     background-repeat: no-repeat;
+    filter: contrast(0.7)
+            brightness(70%)
+            hue-rotate(3deg)
+            saturate(55%);
+    min-width: 100%;
 }
 
 .sun_animation{
-    position: absolute;
-    animation: 4s linear 0s infinite alternate sun-rise;
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><circle cx='100' cy='100' r='50' fill='goldenrod' /><line x1='100' y1='25' x2='100' y2='0' stroke='goldenrod' stroke-width='5' /><line x1='175' y1='100' x2='200' y2='100' stroke='goldenrod' stroke-width='5' /><line x1='100' y1='175' x2='100' y2='200' stroke='goldenrod' stroke-width='5' /><line x1='25' y1='100' x2='0' y2='100' stroke='goldenrod' stroke-width='5' /><line x1='140' y1='40' x2='160' y2='20' stroke='goldenrod' stroke-width='5' /><line x1='60' y1='160' x2='40' y2='140' stroke='goldenrod' stroke-width='5' /><line x1='140' y1='160' x2='160' y2='140' stroke='goldenrod' stroke-width='5' /><line x1='60' y1='40' x2='40' y2='60' stroke='goldenrod' stroke-width='5' /></svg>") no-repeat;
+    position: absolute;animation: x 122s, y 222s;
+    animation-timing-function:cubic-bezier(0.5, 1339, 0.3, 1207);
+    animation-iteration-count:infinite;
     width: 200px;
     height: 200px;
-    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><circle cx='100' cy='100' r='50' fill='goldenrod' /><line x1='100' y1='25' x2='100' y2='0' stroke='goldenrod' stroke-width='5' /><line x1='175' y1='100' x2='200' y2='100' stroke='goldenrod' stroke-width='5' /><line x1='100' y1='175' x2='100' y2='200' stroke='goldenrod' stroke-width='5' /><line x1='25' y1='100' x2='0' y2='100' stroke='goldenrod' stroke-width='5' /><line x1='140' y1='40' x2='160' y2='20' stroke='goldenrod' stroke-width='5' /><line x1='60' y1='160' x2='40' y2='140' stroke='goldenrod' stroke-width='5' /><line x1='140' y1='160' x2='160' y2='140' stroke='goldenrod' stroke-width='5' /><line x1='60' y1='40' x2='40' y2='60' stroke='goldenrod' stroke-width='5' /></svg>") no-repeat;
-}
+    left:var(--x);
+    top: var(--y);
+    opacity: 30%;
+    }
+
+@keyframes x { to { left:calc(var(--x) + 1px); } }
+@keyframes y { to { top :calc(var(--y) + 0.2px); } }
 .site_container{
-    color: #6855e8;
+    color: #f1b34e;
 }
 
 @keyframes sun-rise {
