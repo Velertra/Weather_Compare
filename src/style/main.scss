@@ -166,7 +166,44 @@ body{
 }
 
 
+.cloud_animation{
+  position: absolute;
+  background: rgba(255, 255, 255);
+  width: 300px; 
+  height: 100px;
+  border-radius: 150px;	
+  box-shadow: 10px 10px rgba(0,0,0,0.2);
+    animation: moveCloud 20s linear infinite;
+}
+.cloud_animation:after {
+  content: '';
+  background: rgba(255, 255, 255);
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  top: -50px;
+  left: 50px;
+}
 
+.cloud_animation:before {
+  content: '';
+  background: rgba(255, 255, 255);
+  position: absolute;
+  width: 170px;
+  height: 150px;
+  border-radius: 50%;
+  top: -90px;
+  right: 40px;
+}
+@keyframes moveCloud {
+  0% {
+      left: -200px;
+  }
+  100% {
+      left: 100%; /* Adjust the final left position for desired movement */
+  }
+}
 
 .weekday_container > div,
 .min_container > div,

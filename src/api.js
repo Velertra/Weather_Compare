@@ -102,7 +102,9 @@ getWeatherCast(20001);
         locationBox.addEventListener("keydown", function(e) {
             if (e.key === "Enter") {
               e.preventDefault();
-              getWeatherCast(locationBox.value); 
+              const newLocation = locationBox.value.replace(/[^a-zA-Z0-9\s]/g, '');
+              console.log(newLocation)
+              getWeatherCast(newLocation); 
               locationBox.value = '';
             }
           });
