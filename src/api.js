@@ -4,7 +4,7 @@
 
 
 async function getWeatherCast(location) {
-    const response = await fetch('https://api.weatherapi.com/v1/forecast.json' + '?key=fca5a49483f1418d9c8193621231907&q=' + location + '&days=5');
+    const response = await fetch('http://api.weatherapi.com/v1/forecast.json' + '?key=fca5a49483f1418d9c8193621231907&q=' + location + '&days=5');
     const weatherData = await response.json();
 
     //switch to "return weatherData" when seperating modules
@@ -22,6 +22,7 @@ getWeatherCast(20001);
     class DOMInfo{
         constructor(){
             //Current
+            //this.currentLocation = weatherData
             this.locationDiv = document.getElementById('location');
             this.dateDiv = document.getElementById('date');
             this.timeDiv = document.getElementById('time');
@@ -76,17 +77,7 @@ getWeatherCast(20001);
             this.todayMaxDiv.textContent = weatherData.forecast.forecastday[0].day[`maxtemp_${switchLetter}`];
             this.tomorrowMaxDiv.textContent = weatherData.forecast.forecastday[1].day[`maxtemp_${switchLetter}`]
             this.datMaxDiv.innerHTML = weatherData.forecast.forecastday[2].day[`maxtemp_${switchLetter}`]   
-            currentLocation = weatherData;
-        }
-        locationSearch(){
-            let locationBox = document.getElementById("location_box");      
-            locationBox.addEventListener("keydown", function(e) {
-                if (e.key === "Enter") {
-                e.preventDefault();
-                getWeatherCast(locationBox.value); 
-                locationBox.value = '';
-                }
-            });
+            //currentLocation = weatherData;
         }
         static roundOut(float){
             let roundNumber = Math.ceil(float)
@@ -96,7 +87,7 @@ getWeatherCast(20001);
 
 
     //function that lets the user pick location      
-    let currentLocation = '';
+/*     let currentLocation = '';
     function locationSearch() {
         let locationBox = document.getElementById("location_box");      
         locationBox.addEventListener("keydown", function(e) {
@@ -108,11 +99,45 @@ getWeatherCast(20001);
               locationBox.value = '';
             }
           });
-    };    
-    locationSearch()
+    };   */  
+    //locationSearch()
+document.addEventListener('DOMContentLoaded', () => {
+    const locationBox = document.getElementById("location_box"); 
+    const switchBtn = document.getElementById("switch_temperature");
+    const switchLetter = 'f'; 
+    let weatherClass = new DOMInfo();
+    
+        //weatherClass.currentLocation = '';
+        locationBox.addEventListener("keydown", function(e) {
+            if (e.key === "Enter") {
+            e.preventDefault();
+            htmlEntities(locationBox.value);
+            const newLocation = locationBox.value.replace(/[^a-zA-Z0-9\s]/g, '');
+            console.log(newLocation)
+            getWeatherCast(newLocation); 
+            locationBox.value = '';
+        }
+    });
+   // function switchTemp(weatherData){
+        switchBtn.addEventListener('click', function(e){
+            if(switchLetter === 'f'){
+                switchBtn.textContent = 'C\u00B0';
+                switchLetter = "c";
+            } else {
+                switchBtn.textContent = 'F\u00B0';
+                switchLetter = "f";
+            }
+            weatherClass.displayCurrentInfo(weatherClass.currentLocation, switchLetter);
+        })
+   // }
+})
+
+function htmlEntities(str) {
+    console.log('checking')
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
 
 
-let reRender = new DOMInfo();
     let switchLetter = 'f';
     function switchTemp(weatherData){
         let switchBtn = document.getElementById("switch_temperature");
@@ -124,7 +149,7 @@ let reRender = new DOMInfo();
                 switchBtn.textContent = 'F\u00B0';
                 switchLetter = "f";
             }
-            reRender.displayCurrentInfo(currentLocation, switchLetter);
+            weatherClass.displayCurrentInfo(currentLocation, switchLetter);
         })
     }
     switchTemp()
