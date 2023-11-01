@@ -1,14 +1,16 @@
-# Weather_Compare
+# WeatherAPI
+
+-App displays data from an api regarding the weather
+-has a button the switches between to different points of the api
+-Css animation was added
+
+-using Javascript, CSS, HTML and Webpack to hold her all together 
 
 
--Need to Orginize code into thier own modules
--edit search bar so it only takes correct info and only lets "enter" work after a value has been filled
--add little images
--CSS
--remove colored Divs
--background image 
-
-
-__Original Idea__
-Will have both future forcast, and previous forcast, along with the actual temp that occurred.
--might be unable to do because the future forecast changes every 5 seconds 
+- Need to Orginize code into thier own modules
+- Make sure innerHTML is being turned into a string. saw some questionable code in that area (after the class is all questionable but line 104 in api.js). 
+- Fix size response
+- re-style
+- F/C button isnt working.
+- 
+-API stopped working. believe its because im not using vercel so the api needs to be switched to "http" but the consoles saying thats a no go.
