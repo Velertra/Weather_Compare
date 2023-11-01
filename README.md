@@ -9,7 +9,7 @@
 
 - Need to Orginize code into thier own modules
 - Make sure innerHTML is being turned into a string. saw some questionable code in that area (after the class is all questionable but line 104 in api.js). 
-- Fix size response
+- Fix size responsel
 - re-style
 - F/C button isnt working.
 - 
